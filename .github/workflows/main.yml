@@ -1,8 +1,8 @@
-name: Build and Deploy Script
+name: Build and Deploy to Github Pages
 on:
   push:
     branches: [main]
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,10 +11,10 @@ jobs:
     - name: Checkout Repository 
       uses: actions/checkout@v4
 
-    - name: Setup Node JS
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 18.x
+        node-version: latest
 
     - name: Install dependencies
       run: npm install
@@ -22,9 +22,9 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Deploy to gh pages
+    - name: Deploy to Github pages
       run: |
-        npm chemille.github.io --dir=dist/chemille.github.io
+        npm run ng -- deploy --repo="https://github.com/chemille/github.chemille.io.git" --based-href=/chemille.github.io/ --name=chemille --ohmotrl@gmail.com
       env:
         CI: true
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
