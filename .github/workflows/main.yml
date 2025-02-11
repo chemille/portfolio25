@@ -27,6 +27,6 @@ jobs:
         CI: true
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        npm run ng -- deploy --repo="https://github.com/chemille/chemille.github.io.git" --base-href=/chemille.github.io/ --name=chemille --email=ohmotrl@gmail.com
+        npm run ng -- deploy --base-href=/chemille.github.io/ --name=chemille --email=ohmotrl@gmail.com
 
       # npm run ng -- deploy --repo="https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git" --base-href=/YOUR_REPOSITORY_NAME/ --name=<YOUR_USERNAME> --email=<YOUR_EMAIL>
