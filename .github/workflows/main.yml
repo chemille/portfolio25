@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy Script
 on:
   push:
     branches: [main]
@@ -21,3 +21,10 @@ jobs:
 
     - name: Build
       run: npm run build
+
+    - name: Deploy to gh pages
+      run: |
+        npm chemille.github.io --dir=dist/chemille.github.io
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
